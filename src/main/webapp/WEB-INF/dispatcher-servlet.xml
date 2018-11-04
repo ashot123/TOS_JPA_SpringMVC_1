@@ -63,9 +63,9 @@
 
 
     <!-- MySQL Datasource with Commons DBCP connection pooling -->
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/tos"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/tos?useSSL=false"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
@@ -82,12 +82,11 @@
     </bean>
 
 
-
-         <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-            <property name="webBindingInitializer">
-                <bean class="tos.web.controller.DateBinder"/>
-            </property>
-        </bean>-->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="webBindingInitializer">
+            <bean class="tos.web.controller.DateBinder"/>
+        </property>
+    </bean>-->
 
 
 </beans>
