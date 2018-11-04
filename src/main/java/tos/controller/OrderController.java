@@ -1,4 +1,4 @@
-package tos.web.controller;
+package tos.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import tos.entity.Flight;
 import tos.service.FlightService;
 import tos.service.OrderService;
-import tos.service.exception.ServiceException;
 
 import javax.persistence.PersistenceException;
 import javax.validation.Valid;

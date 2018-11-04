@@ -1,4 +1,4 @@
-package tos.web.controller;
+package tos.controller;
 
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -34,11 +34,9 @@ public class FlightSearchForm {
     @NotNull
     private Date arrivalTime = getLastMinuteOfDay(); //23:59
 
-
     private boolean departureTimeSelected = false;
+
     private boolean arrivalTimeSelected = false;
-
-
 
     // Departure and Arrival city id-s
     public int getDepartureCityId() {
@@ -49,8 +47,7 @@ public class FlightSearchForm {
         this.departureCityId = departureCityId;
     }
 
-
-
+    // Getters and Setters
     public int getArrivalCityId() {
         return arrivalCityId;
     }
@@ -58,7 +55,6 @@ public class FlightSearchForm {
     public void setArrivalCityId(int arrivalCityId) {
         this.arrivalCityId = arrivalCityId;
     }
-
 
     // Departure Date, Time and time selection
     public Date getDepartureDate() {
@@ -69,43 +65,35 @@ public class FlightSearchForm {
         this.departureDate = departureDate;
     }
 
-
     public Date getArrivalDate() {
         return arrivalDate;
     }
 
-
     public void setArrivalDate(Date arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
-
 
     // Departure time, Arrival time
     public Date getDepartureTime() {
         return departureTime;
     }
 
-
     public void setDepartureTime(Date departureTime) {
         this.departureTime = departureTime;
     }
-
 
     public Date getArrivalTime() {
         return arrivalTime;
     }
 
-
     public void setArrivalTime(Date arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
-
 
     //Departure time selected
     public boolean isDepartureTimeSelected() {
         return departureTimeSelected;
     }
-
 
     public void setDepartureTimeSelected(boolean departureTimeSelected) {
         this.departureTimeSelected = departureTimeSelected;
@@ -115,7 +103,6 @@ public class FlightSearchForm {
     public boolean isArrivalTimeSelected() {
         return arrivalTimeSelected;
     }
-
 
     public void setArrivalTimeSelected(boolean arrivalTimeSelected) {
         this.arrivalTimeSelected = arrivalTimeSelected;

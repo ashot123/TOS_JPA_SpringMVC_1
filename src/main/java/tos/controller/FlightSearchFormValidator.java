@@ -1,12 +1,10 @@
-package tos.web.controller;
+package tos.controller;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 /**
  * Created by Ashot Karakhanyan on 04-05-2014

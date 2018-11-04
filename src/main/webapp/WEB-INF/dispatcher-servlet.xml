@@ -33,11 +33,11 @@
 
 
     <!--Validation-->
-    <bean id="flightSearchFormValidator" class="tos.web.controller.FlightSearchFormValidator"/>
+    <bean id="flightSearchFormValidator" class="tos.controller.FlightSearchFormValidator"/>
     <!-- <bean flightId="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>-->
 
     <!--Validation-->
-    <bean id="orderFormValidator" class="tos.web.controller.OrderFormValidator"/>
+    <bean id="orderFormValidator" class="tos.controller.OrderFormValidator"/>
     <bean id="standardValidator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 
 

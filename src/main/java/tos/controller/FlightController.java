@@ -1,4 +1,4 @@
-package tos.web.controller;
+package tos.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

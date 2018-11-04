@@ -1,4 +1,4 @@
-package tos.web.controller;
+package tos.controller;
 
 
 import tos.entity.Flight;

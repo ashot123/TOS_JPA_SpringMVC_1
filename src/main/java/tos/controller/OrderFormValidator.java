@@ -1,12 +1,7 @@
-package tos.web.controller;
+package tos.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-import tos.entity.Order;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 /**
  * Created by Ashot Karakhanyan on 04-05-2014
@@ -16,13 +11,13 @@ import java.text.SimpleDateFormat;
 public class OrderFormValidator implements Validator {
     @Override
     public boolean supports(Class<?> clazz) {
-        return OrderForm.class.isAssignableFrom(clazz);
+        return tos.controller.OrderForm.class.isAssignableFrom(clazz);
     }
 
     @Override
     public void validate(Object target, Errors errors) {
 
-        OrderForm orderForm = (OrderForm) target;
+        tos.controller.OrderForm orderForm = (OrderForm) target;
 
         int class1TicketsCount = orderForm.getClass1TicketsCount();
         int class2TicketsCount = orderForm.getClass2TicketsCount();
