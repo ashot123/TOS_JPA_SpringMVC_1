@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!-- Enable annotation-based Spring MVC controllers (eg: @Controller annotation) -->
+    <mvc:annotation-driven/>
+
+    <!-- Enable @Transactional annotation -->
+    <tx:annotation-driven/>
+
+    <!-- Classpath scanning of @Component, @Service, etc annotated class -->
+    <context:component-scan base-package="tos"/>
+
+    <!-- Resolve view name into jsp file located on /WEB-INF -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/view/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/img/**" location="/img/"/>
+
+
+    <!--Validation-->
+    <bean id="flightSearchFormValidator" class="tos.web.controller.FlightSearchFormValidator"/>
+    <!-- <bean flightId="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>-->
+
+    <!--Validation-->
+    <bean id="orderFormValidator" class="tos.web.controller.OrderFormValidator"/>
+    <bean id="standardValidator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
+
+    <!--Local-->
+    <bean id="localeResolver"
+          class="org.springframework.web.servlet.i18n.CookieLocaleResolver"/>
+
+    <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+        <property name="paramName" value="language"/>
+    </bean>
+
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+    </bean>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <ref bean="localeChangeInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+    <!-- MySQL Datasource with Commons DBCP connection pooling -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/tos"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+
+    <!-- EntityManagerFactory -->
+    <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
+        <property name="persistenceUnitName" value="tosUnit"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- Transaction Manager -->
+    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+
+
+         <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+            <property name="webBindingInitializer">
+                <bean class="tos.web.controller.DateBinder"/>
+            </property>
+        </bean>-->
+
+
+</beans>
