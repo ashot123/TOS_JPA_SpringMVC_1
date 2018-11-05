@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--<jsp:useBean id="flights" scope="request" type="java.util.List<tos.entity.Flight>"/>--%>
 
 <html>
@@ -11,7 +12,7 @@
         }
     </style>
 
-    <title>Find Flights</title>
+    <title><spring:message code="found.flights.title"/></title>
 
     <link href="<c:url value="/css/screen.css" />" rel="stylesheet">
     <link href="<c:url value="/css/styles.css" />" rel="stylesheet">
@@ -24,20 +25,19 @@
 
 <div>
     <fieldset>
-        <legend>Found Flights</legend>
+        <legend><spring:message code="found.flights.title"/></legend>
         <div>
             <table>
                 <tr>
                     <th>Id</th>
-                    <th>Departure City</th>
-                    <th>Arrival City</th>
-                    <th>Departure Date</th>
-                    <th>Arrival Date</th>
-                    <th>Aircraft</th>
-                    <th>Company</th>
-                    <th>Order</th>
+                    <th><spring:message code="found.flights.departure.departureCity"/></th>
+                    <th><spring:message code="found.flights.arrivalCity"/></th>
+                    <th><spring:message code="found.flights.departure.date"/></th>
+                    <th><spring:message code="found.flights.arrivalDate"/></th>
+                    <th><spring:message code="found.flights.aircraft"/></th>
+                    <th><spring:message code="found.flights.company"/></th>
+                    <th><spring:message code="found.flights.order"/></th>
                 </tr>
-
 
                 <c:forEach items="${flights}" var="flight">
                     <tr>

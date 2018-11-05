@@ -80,7 +80,7 @@
 
 
         <form:form action="submitForm" modelAttribute="flightForm">
-            <table >
+            <table>
                 <tr>
                     <td colspan=5><form:errors path="" cssClass="commonError"/></td>
                 </tr>
@@ -95,8 +95,8 @@
                     <td colspan="2" class="bigBoxSize">
                         <label>
                             <form:select path="departureCityId" id="departure_city_id" cssClass="middleBoxSize">
-
-                                <form:option value="0" label="---Select City---"/>
+                                <spring:message code="select.city" var="i18nTooltip1"/>
+                                <form:option value="0" label="${i18nTooltip1}"/>
                                 <form:options items="${cityNames}" itemValue="id" itemLabel="name"/>
                             </form:select>
                         </label>
@@ -112,7 +112,8 @@
                     <td colspan="2">
                         <label>
                             <form:select path="arrivalCityId" id="arrival_city_id" cssClass="middleBoxSize">
-                                <form:option value="0" label="---Select City---"/>
+                                <spring:message code="select.city" var="i18nTooltip2"/>
+                                <form:option value="0"  label="${i18nTooltip2}"/>
                                 <form:options items="${cityNames}" itemValue="id" itemLabel="name"/>
                             </form:select>
 
@@ -141,7 +142,7 @@
                         </label>
                     </td>
                     <td>
-                        <form:errors path="departureDate" cssClass="error"/>
+                        <form:errors path="departureDate" cssClass="error" title="Hello!!!" />
                     </td>
                     <td colspan="1"></td>
                 </tr>

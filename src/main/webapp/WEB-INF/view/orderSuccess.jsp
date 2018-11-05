@@ -14,12 +14,10 @@
 <div>
     <fieldset>
         <legend><spring:message code="success.title"/></legend>
-        Your order has been made successfully.
+        <spring:message code="success.message"/>
         <br/>
-        <a href="<c:url value="/flights/selectFlight"/>"><spring:message code="find.title.another"/></a><b><c:out
-            value="${sessionScope.user}"/></b>
-
-
+        <a href="<c:url value="/flights/selectFlight"/>"><spring:message code="find.another.flight"/></a>
+        <b><c:out value="${sessionScope.user}"/></b>
     </fieldset>
 </div>
 
