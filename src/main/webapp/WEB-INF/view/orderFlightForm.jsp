@@ -145,7 +145,7 @@
                     <tr>
                         <td colspan="3">
                             <input type="submit" value="<spring:message code="submit"/>"/>
-                            <input type="reset" value="<spring:message code="reset"/>"
+                            <input type="reset" value="<spring:message code="reset"/>">
                         </td>
                     </tr>
                 </table>

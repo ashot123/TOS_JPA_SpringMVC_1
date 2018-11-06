@@ -61,18 +61,28 @@
 <body>
 
 <jsp:include page="include/header.jsp"/>
-<%--
-<div align="right">
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            dateFormat: "dd.mm.yy",
+            buttonImageOnly: true
+        });
+    });
 
-    <a href="?language=hy&amp;enc=utf8"><img src="<c:url value="/img/lang_arm.gif" />" alt="Armenian" title="Armenian"
-                                             class="lang" border="0" height="16" width="23"/></a>
-    <a href="?language=ru"><img src="<c:url value="/img/lang_rus.gif" />" class="lang" alt="Russian" title="Russian"
-                                border="0" height="16" width="23"></a>
-    <a href="?language=en"><img src="<c:url value="/img/lang_eng.gif" />" class="lang" alt="English" title="English"
-                                border="0" height="16" width="23"></a>
-</div>
---%>
-<%--    Language : <a href="?language=en">English</a>|<a href="?language=ru">Russian</a>|<a href="?language=hy">Armenian</a></h4>--%>
+    $(function () {
+        $("#datepicker2").datepicker({
+            dateFormat: "dd.mm.yy"
+        });
+    });
+
+   /* $("#disable").on("click", function () {
+        if (spinner.spinner("option", "disabled")) {
+            spinner.spinner("enable");
+        } else {
+            spinner.spinner("disable");
+        }
+    });*/
+</script>
 
 <div>
     <fieldset>
@@ -113,7 +123,7 @@
                         <label>
                             <form:select path="arrivalCityId" id="arrival_city_id" cssClass="middleBoxSize">
                                 <spring:message code="select.city" var="i18nTooltip2"/>
-                                <form:option value="0"  label="${i18nTooltip2}"/>
+                                <form:option value="0" label="${i18nTooltip2}"/>
                                 <form:options items="${cityNames}" itemValue="id" itemLabel="name"/>
                             </form:select>
 
@@ -133,16 +143,16 @@
                     <td><spring:message code="departure.date"/>:</td>
                     <td>
                         <label>
-                            <form:input path="departureDate" cssClass="smallBoxSize1"/>
+                            <form:input id="datepicker" path="departureDate" cssClass="smallBoxSize1" readonly="true"/>
                         </label>
                     </td>
                     <td>
-                        <label class="smallChar">
-                            (dd.MM.yyyy)
-                        </label>
+                            <%--<label class="smallChar">
+                                (dd.MM.yyyy)
+                            </label>--%>
                     </td>
                     <td>
-                        <form:errors path="departureDate" cssClass="error" title="Hello!!!" />
+                        <form:errors path="departureDate" cssClass="error" title="Hello!!!"/>
                     </td>
                     <td colspan="1"></td>
                 </tr>
@@ -194,13 +204,13 @@
                     <td><spring:message code="arrival.date"/>:</td>
                     <td>
                         <label>
-                            <form:input path="arrivalDate" cssClass="smallBoxSize1"/>
+                            <form:input id="datepicker2" path="arrivalDate" cssClass="smallBoxSize1" readonly="true"/>
                         </label>
                     </td>
                     <td>
-                        <label class="smallChar">
-                            (dd.MM.yyyy)
-                        </label>
+                            <%--<label class="smallChar">
+                                (dd.MM.yyyy)
+                            </label>--%>
                     </td>
                     <td>
                         <form:errors path="arrivalDate" cssClass="error"/>
