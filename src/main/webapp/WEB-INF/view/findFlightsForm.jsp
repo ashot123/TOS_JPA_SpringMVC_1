@@ -65,13 +65,22 @@
     $(function () {
         $("#datepicker").datepicker({
             dateFormat: "dd.mm.yy",
-            buttonImageOnly: true
+            showOn: "button",
+            /* buttonImage: "img/calendar-icon.png",*/
+            buttonImage: "../img/calendar16x16.png",
+            buttonImageOnly: true,
+            buttonText: "Select date"
         });
     });
 
     $(function () {
         $("#datepicker2").datepicker({
-            dateFormat: "dd.mm.yy"
+            dateFormat: "dd.mm.yy",
+            showOn: "button",
+           /* buttonImage: "img/calendar-icon.png",*/
+            buttonImage: "../img/calendar16x16.png",
+            buttonImageOnly: true,
+            buttonText: "Select date"
         });
     });
 
